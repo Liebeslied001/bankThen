@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { CreateNewCategoryComponent } from './components/create-new-category/create-new-category.component';
 import { FormsModule } from '@angular/forms';
+import { CategoriesModule } from './categories/categories.module';
+import { TransactionsModule } from './transactions/transactions.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CategoriesModule,
+    TransactionsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
