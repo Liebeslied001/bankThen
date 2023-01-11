@@ -1,0 +1,54 @@
+<!-- <div class="item-cont">
+  <div class="items">
+    <div>
+      <i class="fa-solid fa-building-columns"></i>
+    </div>
+    <h5>Rent</h5>
+    <p>$ 500</p>
+  </div>
+  <div class="items">
+    <div>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    <h5>Rent</h5>
+    <p>$ 500</p>
+  </div>
+  <div class="items">
+    <div>
+      <i class="fa-solid fa-car"></i>
+    </div>
+    <h5>Rent</h5>
+    <p>$ 500</p>
+  </div>
+  <div class="items">
+    <div>
+      <i class="fa-solid fa-laptop-medical"></i>
+    </div>
+    <h5>Rent</h5>
+    <p>$ 500</p>
+  </div>
+  <div class="items">
+    <div>
+      <i class="fa-solid fa-gift"></i>
+    </div>
+    <h5>Rent</h5>
+    <p>$ 500</p>
+  </div>
+  <div class="items">
+    <div>
+      <i class="fa-solid fa-chalkboard"></i>
+    </div>
+    <h5>Rent</h5>
+    <p>$ 500</p>
+  </div>
+</div> -->
+
+<div class="items" [ngStyle]="{ 'border-color': color }">
+  <div class="icon" [ngStyle]="{ 'background-color': color }">
+    <i class="fa-solid fa-building-columns"></i>
+  </div>
+  <div class="gastos">
+    <h5>{{ textSalario }}</h5>
+    <p>$ {{ money }}</p>
+  </div>
+</div>
