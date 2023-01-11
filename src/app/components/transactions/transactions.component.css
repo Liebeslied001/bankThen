@@ -1,0 +1,16 @@
+.transaction {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 2px solid grey;
+  align-items: center;
+}
+
+.titulo {
+  display: flex;
+  gap: 150px;
+  align-items: center;
+  padding: 10px;
+  background-color: #fafafa;
+}
