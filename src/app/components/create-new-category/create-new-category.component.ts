@@ -9,4 +9,5 @@ export class CreateNewCategoryComponent {
   color: string = '#0CB7D5';
   money: number = 0;
   textSalario: string = '';
+  icon: string = '';
 }

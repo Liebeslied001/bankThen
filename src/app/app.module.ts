@@ -8,6 +8,7 @@ import { CreateNewCategoryComponent } from './components/create-new-category/cre
 import { FormsModule } from '@angular/forms';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ButtonComponent } from './components/button/button.component';
+import { CuentasComponent } from './components/cuentas/cuentas.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ButtonComponent } from './components/button/button.component';
     CreateNewCategoryComponent,
     SideBarComponent,
     ButtonComponent,
+    CuentasComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

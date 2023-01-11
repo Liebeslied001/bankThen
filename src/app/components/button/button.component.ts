@@ -9,4 +9,5 @@ export class ButtonComponent {
   @Input() color!: string;
   @Input() money!: number;
   @Input() textSalario!: string;
+  @Input() icon!: string;
 }
