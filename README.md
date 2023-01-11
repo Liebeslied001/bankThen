@@ -5,4 +5,5 @@
 - Panta Escalante, Cecilia Jazmin
 - Rodriguez Lucas, Antony Jeferson
 - Saucedo Santos, Mercedes Yanet
+- Vasquez Peralta, Rodrigo Franko 
 
