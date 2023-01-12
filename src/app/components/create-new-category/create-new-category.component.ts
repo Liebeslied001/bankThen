@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TabModelItem } from 'src/app/models/tab.model';
 
 @Component({
   selector: 'app-create-new-category',
@@ -6,8 +7,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-new-category.component.css'],
 })
 export class CreateNewCategoryComponent {
+
+  public tabActive: string = 'expenses'
+  public tabs: TabModelItem[] = [
+    {
+      name: 'Expenses',
+      alias: 'expenses',
+      icon: '−'
+    },
+    {
+      name: 'Income',
+      alias: 'income',
+      icon: '+'
+    }
+  ]
+
   color: string = '#0CB7D5';
   money: number = 0;
   textSalario: string = '';
   icon: string = '';
+
+  handleClickTab = ($event: any, tabAlias: string) => {
+    console.log(tabAlias)
+    this.tabActive = tabAlias
+  }
 }
