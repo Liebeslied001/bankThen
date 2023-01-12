@@ -1,6 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --color-gray: #f3f4f6;
+  --color-pink: #f473b6;
+  --color-gray-dark: #6b7380;
+  --color-turqoise: #07b6d5;
+  --color-red: #f43f5f;
+  --color-purple: #8b5cf6;
+  --color-blue-light: #0ea6e9;
+  --color-orange: #f97216;
+  --color-green: #43c6b8;
+  --color-black-light: #4b5563;
+  --color-gray-dark-separator: #eeeff2;
+  --color-black: #121212;
+}
+
+@font-face {
+  font-family: inter;
+  src: url(assets/fonts/inter-regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: inter;
 }

@@ -1,24 +1,16 @@
 <div class="nav">
   <div class="nav-item">
-    <h2>( expensable )</h2>
+    <h2>{{"{ expensable }"}}</h2>
     <ul>
-      <li>
-        <i class="fa-solid fa-house-chimney-window"></i>
-        <a href="#" target="_blank">Categories</a>
-      </li>
-      <li>
-        <i class="fa-regular fa-rectangle-list"></i>
-        <a href="#" target="_blank">Transactions</a>
-      </li>
-      <li>
-        <i class="fa-solid fa-circle-nodes"></i>
-        <a href="#" target="_blank">Budgets</a>
+      <li *ngFor="let nav of menu" [ngClass]="active === nav.name ? 'item--active': ''">
+        <i class="{{nav.icon}}"></i>
+        <a href="#" target="_blank">{{nav.text}}</a>
       </li>
     </ul>
   </div>
-  <div class="nav-item">
-    <p class="nav-item--info">Testing de Prueba</p>
-    <p class="nav-item--email">lestino@mail.com</p>
-    <p class="nav-item--info">Log Out</p>
+  <div class="nav-footer">
+    <p class="nav-item--info">Testino Diprueba</p>
+    <p class="nav-item--email">testino@mail.com</p>
+    <p class="nav-item--info">Log out</p>
   </div>
 </div>
