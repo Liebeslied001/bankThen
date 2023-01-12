@@ -3,6 +3,7 @@
   height: 100vh;
   padding: 60px;
   font-family: inter;
+  color: var(--color-gray-dark);
 }
 
 h1 {
@@ -130,7 +131,7 @@ h5 {
 
 .prise .precio {
   font-size: 2.8rem;
-  color: orangered;
+  color: var(--color-red);
   margin: 5px 0;
 }
 
