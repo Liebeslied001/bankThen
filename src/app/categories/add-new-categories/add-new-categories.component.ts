@@ -1,4 +1,4 @@
-import { Component,Input,OnInit, Output } from '@angular/core';
+import { Component,EventEmitter,Input,OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-new-categories',
@@ -7,11 +7,17 @@ import { Component,Input,OnInit, Output } from '@angular/core';
 })
 export class AddNewCategoriesComponent {
   @Input() display: boolean = false
-  @Input() handleClickOutput: any  = null
+  @Output() clickClose: EventEmitter<any>  = new EventEmitter()
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  handleClickClose = ($event: any) => {
+    if ($event?.target?.dataset.id === 'modal') {
+      this.clickClose.emit()
+    }
   }
 
 }

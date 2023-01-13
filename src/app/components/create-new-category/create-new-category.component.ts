@@ -38,8 +38,7 @@ export class CreateNewCategoryComponent {
     this.isOpenModal = true
   }
 
-  handleClickOutput = () => {
-    //if ($event.target.dataset.id )
+  handleClickOutput = ($event: any) => {
     this.isOpenModal = false
   }
 }

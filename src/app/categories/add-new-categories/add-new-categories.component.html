@@ -1,10 +1,10 @@
 <ng-container *ngIf="display">
-  <div class="popup" data-id="modal">
+  <div class="popup" data-id="modal" (click)="handleClickClose($event)" >
       <div class="popup-backdrop js-modal" data-id="modal"></div>
       <div class="popup-content">
         <div class="popup-header">
           <h2 class="mb-3">New category</h2>
-          <span class="icon-close" (click)="handleClickOutput()" data-id="modal">
+          <span class="icon-close" (click)="handleClickClose($event)" data-id="modal">
             <i class="fa-solid fa-xmark"></i>
           </span>
         </div>

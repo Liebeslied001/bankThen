@@ -65,7 +65,7 @@
       <div class="add-button" (click)="handleClickAddCategory()">
         <i class="fa-solid fa-plus"></i>
       </div>
-      <app-add-new-categories [display]="isOpenModal" [handleClickOutput]="handleClickOutput()"></app-add-new-categories>
+      <app-add-new-categories [display]="isOpenModal" (clickClose)="handleClickOutput($event)"></app-add-new-categories>
     </div>
   </div>
 </div>
