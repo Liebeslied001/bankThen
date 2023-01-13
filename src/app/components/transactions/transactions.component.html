@@ -62,19 +62,19 @@
 
 
   <div class="gastos">
-    <div *ngFor="let cost of transactions">
+    <div *ngFor="let transaction of transactions">
       <app-cuentas
-        [indice]="cost.date"
-        [fecha1]="cost.date"
-        [fecha2]="cost.date"
-        [cantidad]="cost.total"
+        [indice]="transaction.date"
+        [fecha1]="transaction.date"
+        [fecha2]="transaction.date"
+        [cantidad]="transaction.total"
       ></app-cuentas>
       <app-ingresos
-        *ngFor="let costOne of cost.moves"
-        [cantidad]="costOne.mount"
-        [name]="costOne.category"
-        [icon]="costOne.icon"
-        [color]="costOne.color"
+        *ngFor="let move of transaction.moves"
+        [cantidad]="move.mount"
+        [name]="move.category"
+        [icon]="move.icon"
+        [color]="move.color"
       ></app-ingresos>
     </div>
 

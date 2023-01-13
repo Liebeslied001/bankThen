@@ -74,7 +74,7 @@ export class TransactionsComponent {
     }
   }
 
-  transactions: any = [
+  transactionsInit: any = [
     {
       date: '07/03/2022',
       total: 1540,
@@ -151,6 +151,7 @@ export class TransactionsComponent {
     },
   ]
 
+  transactions = [...this.transactionsInit]
   color: string = '';
   icon: string = '';
   name: string = '';
@@ -191,9 +192,10 @@ export class TransactionsComponent {
           category: this.filterApplieds.category.filter((item: string) => item !== element.value )
         }
       }
+
       if (this.filterApplieds.category.length > 0) {
 
-        filtered = this.transactions.map((item: any) => {
+        filtered = this.transactionsInit.map((item: any) => {
           let filteredMoves = item.moves.filter(((move: any) => this.filterApplieds.category.includes(move.alias)))
           return {
             ...item,
@@ -204,7 +206,9 @@ export class TransactionsComponent {
       }
     }
 
+
     console.log(filtered, 'filtered')
+    console.log(this.filterApplieds, 'this.filterApplieds')
     this.transactions = filtered
 
   }
