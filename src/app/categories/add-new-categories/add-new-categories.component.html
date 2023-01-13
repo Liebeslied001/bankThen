@@ -10,21 +10,18 @@
         </div>
         <div class="popup-body">
           <label for="name" class="text-uppercase placeholder">Name</label>
-          <input type="text" name="name" />
+          <input type="text" name="name" (change)="handleChange($event)"/>
           <p class="text-uppercase mb-2 placeholder">Color</p>
-          <div class="paleta">
-            <button class="circle-color circle-red color-selected"></button>
-            <button class="circle-color circle-dark-orange"></button>
-            <button class="circle-color circle-orange"></button>
-            <button class="circle-color circle-dark-green"></button>
-            <button class="circle-color circle-green"></button>
-            <button class="circle-color circle-sky-blue"></button>
-            <button class="circle-color circle-dark-sky-blue"></button>
-            <button class="circle-color circle-blue"></button>
+          <div class="paleta" (click)="handleClickColor($event)">
+            <button
+              *ngFor="let color of colors"
+              [attr.data-color]="color.name"
+              class="{{color.className}}"
+              [ngClass]="color.name === newCategory.color ? 'color-selected': ''" ></button>
           </div>
           <p class="text-uppercase mt-4 mb-2 placeholder">Icon</p>
-          <div class="icons">
-            <button class="circle-icon icon-selected">
+          <div class="icons" (click)="handleClickIcon($event)">
+            <button class="circle-icon" [ngClass]="newCategory.icon === 'rent' ? 'icon-selected' : ''" data-icon="rent">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -39,7 +36,7 @@
                 />
               </svg>
             </button>
-            <button class="circle-icon">
+            <button class="circle-icon" [ngClass]="newCategory.icon === 'groceries' ? 'icon-selected' : ''" data-icon="groceries">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -51,7 +48,7 @@
                 />
               </svg>
             </button>
-            <button class="circle-icon">
+            <button class="circle-icon" [ngClass]="newCategory.icon === 'health' ? 'icon-selected' : ''" data-icon="health">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -66,7 +63,7 @@
                 />
               </svg>
             </button>
-            <button class="circle-icon">
+            <button class="circle-icon" [ngClass]="newCategory.icon === 'hobbie' ? 'icon-selected' : ''" data-icon="hobbie">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -81,7 +78,7 @@
                 />
               </svg>
             </button>
-            <button class="circle-icon">
+            <button class="circle-icon" [ngClass]="newCategory.icon === 'credit' ? 'icon-selected' : ''" data-icon="credit">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -93,7 +90,7 @@
                 />
               </svg>
             </button>
-            <button class="circle-icon">
+            <button class="circle-icon" [ngClass]="newCategory.icon === 'education' ? 'icon-selected' : ''" data-icon="education">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -108,7 +105,7 @@
                 />
               </svg>
             </button>
-            <button class="circle-icon">
+            <button class="circle-icon" [ngClass]="newCategory.icon === 'transport' ? 'icon-selected' : ''" data-icon="transport">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -120,7 +117,7 @@
                 />
               </svg>
             </button>
-            <button class="circle-icon">
+            <button class="circle-icon" [ngClass]="newCategory.icon === 'gifts' ? 'icon-selected' : ''" data-icon="gifts">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -136,7 +133,7 @@
         </div>
 
         <div class="popup-footer">
-          <button>Create</button>
+          <button (click)="handleClickCreate()">Create</button>
         </div>
       </div>
   </div>

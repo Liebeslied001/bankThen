@@ -39,6 +39,7 @@ export class CreateNewCategoryComponent {
   }
 
   handleClickOutput = ($event: any) => {
+    console.log($event, 'holi')
     this.isOpenModal = false
   }
 }

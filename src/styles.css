@@ -1,14 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
+  --color-red: #f44261;
+  --color-orange: #f97216;
+  --color-yellow: #f59e0b;
   --color-gray: #f3f4f6;
   --color-pink: #f473b6;
   --color-gray-dark: #6b7380;
-  --color-turqoise: #07b6d5;
-  --color-red: #f44261;
+  --color-turqoise: #06b6d4;
   --color-purple: #8b5cf6;
-  --color-blue-light: #0ea6e9;
-  --color-orange: #f97216;
-  --color-green: #43c6b8;
+  --color-blue-light: #0ea5e9;
+  --color-blue: #3b82f6;
+  --color-green: #10b981;
+  --color-gree-aqua: #10b981;
   --color-black-light: #4b5563;
   --color-gray-dark-separator: #eeeff2;
   --color-black: #121212;

@@ -10,7 +10,7 @@ import { AddNewCategoriesComponent } from './add-new-categories/add-new-categori
   ],
   imports: [
     CommonModule
-  
+
   ],
   exports: [
     LayoutCategoriesComponent,
