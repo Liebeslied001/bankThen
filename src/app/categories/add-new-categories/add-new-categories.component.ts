@@ -9,6 +9,7 @@ import { CategoryModel } from 'src/app/models/category.model';
 export class AddNewCategoriesComponent {
   @Input() display: boolean = false
   @Output() clickClose: EventEmitter<any>  = new EventEmitter()
+  @Output() clickSend: EventEmitter<any>  = new EventEmitter()
 
   public colors: Array<any>= [
     {
@@ -102,6 +103,9 @@ export class AddNewCategoriesComponent {
   }
 
   handleClickCreate = () => {
-    console.log(this.newCategory)
+    if (this.newCategory.color && this.newCategory.name && this.newCategory.icon) {
+      this.clickSend.emit(this.newCategory)
+      this.clickClose.emit()
+    }
   }
 }
