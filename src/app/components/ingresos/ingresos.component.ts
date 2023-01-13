@@ -9,6 +9,6 @@ export class IngresosComponent {
   @Input() color!: string;
   @Input() icon!: string;
   @Input() name!: string;
-  @Input() cantidad!: string;
+  @Input() cantidad!: string | number;
   @Input() colorCant!: string;
 }
