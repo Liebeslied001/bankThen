@@ -194,7 +194,6 @@ export class TransactionsComponent {
       }
 
       if (this.filterApplieds.category.length > 0) {
-
         filtered = this.transactionsInit.map((item: any) => {
           let filteredMoves = item.moves.filter(((move: any) => this.filterApplieds.category.includes(move.alias)))
           return {
@@ -203,9 +202,10 @@ export class TransactionsComponent {
           }
         })
 
+      } else {
+        filtered = this.transactionsInit
       }
     }
-
 
     console.log(filtered, 'filtered')
     console.log(this.filterApplieds, 'this.filterApplieds')

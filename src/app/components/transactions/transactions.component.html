@@ -37,11 +37,11 @@
     <div class="amount-section">
       <div>
         <label>MIN</label>
-        <input type="text">
+        <input type="text" (change)="handleChangeInput($event)" data-filter="amount">
       </div>
       <div>
         <label>MAX</label>
-        <input type="text">
+        <input type="text" (change)="handleChangeInput($event)" data-filter="amount">
       </div>
     </div>
     <h2>Date</h2>
