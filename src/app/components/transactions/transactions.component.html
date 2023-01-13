@@ -1,68 +1,82 @@
 <div class="transaction">
   <div class="titulo">
     <h2>Transaction</h2>
-    <div><i class="fa-solid fa-filter"></i></div>
+    <div class="icon-filter" (click)="handleClickIconFilter()"><i class="fa-solid fa-filter"></i></div>
   </div>
+
+  <div class="filters"*ngIf="isFilters">
+    <h2>Category</h2>
+
+    <div class="category-section">
+      <label for="category">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="category" value="rent" data-filter="category">
+        Rent
+      </label>
+      <label for="salary">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="salary" value="salary" data-filter="category">
+        Salary
+      </label>
+      <label for="transport">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="transport" value="transport" data-filter="category">
+        Transport
+      </label>
+      <label for="education">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="education" value="education" data-filter="category">
+        Education
+      </label>
+      <label for="grocery">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="grocery" value="grocery" data-filter="category">
+        Groceries
+      </label>
+      <label for="gift">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="gift" data-filter="category">
+        Gifts
+      </label>
+    </div>
+    <h2>Amount</h2>
+    <div class="amount-section">
+      <div>
+        <label>MIN</label>
+        <input type="text">
+      </div>
+      <div>
+        <label>MAX</label>
+        <input type="text">
+      </div>
+    </div>
+    <h2>Date</h2>
+    <div class="amount-section">
+      <div>
+        <label>FROM</label>
+        <input type="date">
+      </div>
+      <div>
+        <label>TO</label>
+        <input type="date">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
   <div class="gastos">
-    <app-cuentas
-      [indice]="'07'"
-      [fecha1]="'Monday'"
-      [fecha2]="'March, 2022'"
-      [cantidad]="'-$ 530'"
-    ></app-cuentas>
-    <app-ingresos
-      [colorCant]="colorNegativo"
-      [cantidad]="'-$ 500'"
-      [name]="'Rent'"
-      [icon]="'fa-solid fa-building-columns'"
-      [color]="'#808080'"
-    ></app-ingresos>
-    <app-ingresos
-      [colorCant]="colorPostivo"
-      [cantidad]="'+$ 2000'"
-      [name]="'Salary'"
-      [icon]="'fa-solid fa-building-columns'"
-      [color]="'#43C6B8'"
-    ></app-ingresos>
-    <app-ingresos
-      [colorCant]="colorNegativo"
-      [cantidad]="'-$ 10'"
-      [name]="'Transport'"
-      [icon]="'fa-solid fa-car'"
-      [color]="'#F97315'"
-    ></app-ingresos>
-    <app-cuentas
-      [indice]="'06'"
-      [fecha1]="'Sunday'"
-      [fecha2]="'March, 2022'"
-      [cantidad]="'-$ 320'"
-    ></app-cuentas>
-    <app-ingresos
-      [colorCant]="colorNegativo"
-      [cantidad]="'-$ 250'"
-      [name]="'Education'"
-      [icon]="'fa-solid fa-chalkboard'"
-      [color]="'#0EA5E9'"
-    ></app-ingresos>
-    <app-ingresos
-      [colorCant]="colorNegativo"
-      [cantidad]="'-$ 20'"
-      [name]="'Groceries'"
-      [icon]="'fa-solid fa-cart-shopping'"
-      [color]="'#0CB7D5'"
-    ></app-ingresos>
-    <app-ingresos
-      [colorCant]="colorNegativo"
-      [cantidad]="'-$ 50'"
-      [name]="'Gifts'"
-      [icon]="'fa-solid fa-gift'"
-      [color]="'#8B5CF6'"
-    ></app-ingresos>
-    <app-cuentas
-      [indice]="'05'"
-      [fecha1]="'Saturday'"
-      [fecha2]="'March, 2022'"
-      [cantidad]="'-$ 90'"
-    ></app-cuentas>
+    <div *ngFor="let cost of transactions">
+      <app-cuentas
+        [indice]="cost.date"
+        [fecha1]="cost.date"
+        [fecha2]="cost.date"
+        [cantidad]="cost.total"
+      ></app-cuentas>
+      <app-ingresos
+        *ngFor="let costOne of cost.moves"
+        [cantidad]="costOne.mount"
+        [name]="costOne.category"
+        [icon]="costOne.icon"
+        [color]="costOne.color"
+      ></app-ingresos>
+    </div>
+
   </div>
 </div>

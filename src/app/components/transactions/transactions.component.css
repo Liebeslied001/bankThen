@@ -1,5 +1,5 @@
 h2 {
-  font-family: sans-serif;
+  font-family: inter;
 }
 
 .transaction {
@@ -7,8 +7,9 @@ h2 {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 2px solid grey;
+  border-left: 2px solid var(--color-gray-dark-separator);
   align-items: center;
+  overflow-y: scroll;
 }
 
 .titulo {
@@ -25,4 +26,31 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 100%;
+}
+
+.icon-filter {
+  cursor: pointer;
+}
+
+.filters {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.category-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.category-section label {
+  margin: 8px 16px;
+  cursor: pointer;
+}
+
+.amount-section {
+  display: flex;
+  padding: 20px
 }
