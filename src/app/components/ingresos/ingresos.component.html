@@ -9,7 +9,7 @@
       <p>Description</p>
     </div>
   </div>
-  <div class="total">
+  <div class="total" [ngClass]="cantidad > 0 ? 'total--plus':'total--minus'">
     <p [ngStyle]="{ color: colorCant }">{{ cantidad }}</p>
   </div>
 </div>
