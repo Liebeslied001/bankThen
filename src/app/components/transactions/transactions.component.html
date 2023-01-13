@@ -1,10 +1,61 @@
 <div class="transaction">
   <div class="titulo">
     <h2>Transaction</h2>
-    <div><i class="fa-solid fa-filter"></i></div>
+    <div class="icon-filter" (click)="handleClickIconFilter()"><i class="fa-solid fa-filter"></i></div>
   </div>
 
+  <div class="filters"*ngIf="isFilters">
+    <h2>Category</h2>
 
+    <div class="category-section">
+      <label for="category">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="category" value="rent" data-filter="category">
+        Rent
+      </label>
+      <label for="salary">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="salary" value="salary" data-filter="category">
+        Salary
+      </label>
+      <label for="transport">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="transport" value="transport" data-filter="category">
+        Transport
+      </label>
+      <label for="education">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="education" value="education" data-filter="category">
+        Education
+      </label>
+      <label for="grocery">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="grocery" value="grocery" data-filter="category">
+        Groceries
+      </label>
+      <label for="gift">
+        <input (change)="handleChangeInput($event)" type="checkbox" id="gift" data-filter="category">
+        Gifts
+      </label>
+    </div>
+    <h2>Amount</h2>
+    <div class="amount-section">
+      <div>
+        <label>MIN</label>
+        <input type="text">
+      </div>
+      <div>
+        <label>MAX</label>
+        <input type="text">
+      </div>
+    </div>
+    <h2>Date</h2>
+    <div class="amount-section">
+      <div>
+        <label>FROM</label>
+        <input type="date">
+      </div>
+      <div>
+        <label>TO</label>
+        <input type="date">
+      </div>
+    </div>
+  </div>
 
 
 

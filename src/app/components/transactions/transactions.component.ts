@@ -74,7 +74,7 @@ export class TransactionsComponent {
     }
   }
 
-  transactions = [
+  transactions: any = [
     {
       date: '07/03/2022',
       total: 1540,
@@ -84,21 +84,24 @@ export class TransactionsComponent {
           description: 'Description',
           icon: this.category.rent.icon,
           color: this.category.rent.color,
-          mount: -500
+          mount: -500,
+          alias: 'rent'
         },
         {
           category: this.category.salary.text,
           description: 'Description',
           icon: this.category.salary.icon,
           color: this.category.salary.color,
-          mount: 2000
+          mount: 2000,
+          alias: 'salary'
         },
         {
           category: this.category.transport.text,
           description: 'Description',
           icon: this.category.transport.icon,
           color: this.category.transport.color,
-          mount: -10
+          mount: -10,
+          alias: 'transport'
         },
       ]
     },
@@ -111,21 +114,24 @@ export class TransactionsComponent {
           description: 'Description',
           icon: this.category.education.icon,
           color: this.category.education.color,
-          mount: -250
+          mount: -250,
+          alias: 'education'
         },
         {
           category: this.category.grocery.text,
           description: 'Description',
           icon: this.category.grocery.icon,
           color: this.category.grocery.color,
-          mount: -20
+          mount: -20,
+          alias: 'grocery'
         },
         {
           category: this.category.gift.text,
           description: 'Description',
           icon: this.category.gift.icon,
           color: this.category.gift.color,
-          mount: -50
+          mount: -50,
+          alias: 'gift'
         },
       ]
     },
@@ -138,7 +144,8 @@ export class TransactionsComponent {
           description: 'Description',
           icon: this.category.health.icon,
           color: this.category.health.color,
-          mount: -500
+          mount: -500,
+          alias: 'health'
         },
       ]
     },
@@ -150,4 +157,56 @@ export class TransactionsComponent {
   cantidad: string = '';
   colorPostivo: string = '#43C6B8';
   colorNegativo: string = '#F06C6C';
+
+  isFilters: boolean = true
+
+  filterApplieds: any = {
+    category: [],
+    amount: {},
+    date: {}
+  }
+
+  handleClickIconFilter = () => {
+    if (this.isFilters) {
+      this.isFilters = false
+    } else {
+      this.isFilters = true
+    }
+  }
+
+  handleChangeInput = ($event: any) => {
+    const element = $event.target
+    let filtered = []
+
+    if (element.dataset.filter === 'category') {
+      console.log(element.checked)
+      if (element.checked) {
+        this.filterApplieds = {
+          ...this.filterApplieds,
+          category: [...this.filterApplieds.category, element.value]
+        }
+      } else {
+        this.filterApplieds = {
+          ...this.filterApplieds,
+          category: this.filterApplieds.category.filter((item: string) => item !== element.value )
+        }
+      }
+      if (this.filterApplieds.category.length > 0) {
+
+        filtered = this.transactions.map((item: any) => {
+          let filteredMoves = item.moves.filter(((move: any) => this.filterApplieds.category.includes(move.alias)))
+          return {
+            ...item,
+            moves: filteredMoves
+          }
+        })
+
+      }
+    }
+
+    console.log(filtered, 'filtered')
+    this.transactions = filtered
+
+  }
+
 }
