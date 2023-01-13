@@ -1,0 +1,47 @@
+.items {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border: 3px solid gray;
+  border-radius: 10px;
+  width: 270px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.items:hover {
+  scale: 1.06;
+  background-color: #e9fefd;
+}
+
+h5,
+p {
+  font-family: inter;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: gray;
+  display: grid;
+  place-content: center;
+}
+
+.icon i {
+  color: aliceblue;
+  font-size: 1.4rem;
+}
+
+.gastos h5 {
+  color: #666;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.gastos p {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #333;
+}
