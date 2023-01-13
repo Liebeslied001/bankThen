@@ -103,7 +103,7 @@ export class AddNewCategoriesComponent {
   }
 
   handleClickCreate = () => {
-    if (this.newCategory.color && this.newCategory.name && this.newCategory.icon) {
+    if (this.newCategory.color !== '' && this.newCategory.name !== '' && this.newCategory.icon !== '') {
       this.clickSend.emit(this.newCategory)
       this.clickClose.emit()
     }

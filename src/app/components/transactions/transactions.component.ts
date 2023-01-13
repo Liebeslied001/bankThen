@@ -6,6 +6,7 @@ import { Transaction } from 'src/app/models/transaction.model';
   styleUrls: ['./transactions.component.css'],
 })
 export class TransactionsComponent {
+
   @Input() transaction: Transaction = {
     id: 0,
     icon: '',
