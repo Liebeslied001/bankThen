@@ -6,7 +6,6 @@ import { Transaction } from 'src/app/models/transaction.model';
   styleUrls: ['./transactions.component.css'],
 })
 export class TransactionsComponent {
-
   @Input() transaction: Transaction = {
     id: 0,
     icon: '',
@@ -24,8 +23,8 @@ export class TransactionsComponent {
     'blue-light': '#0ea5e9',
     blue: '#3b82f6',
     gray: '#6b7380',
-    purple: '#8b5cf6'
-  }
+    purple: '#8b5cf6',
+  };
 
   private icons: any = {
     building: 'fa-solid fa-building-columns',
@@ -33,46 +32,46 @@ export class TransactionsComponent {
     car: 'fa-solid fa-car',
     health: 'fa-solid fa-laptop-medical',
     gift: 'fa-solid fa-gift',
-    education: 'fa-solid fa-chalkboard'
-  }
+    education: 'fa-solid fa-chalkboard',
+  };
 
   private category = {
-    'rent' : {
+    rent: {
       text: 'Rent',
       color: this.colors.gray,
-      icon: this.icons.building
+      icon: this.icons.building,
     },
-    'salary' : {
+    salary: {
       text: 'Salary',
       color: this.colors.green,
-      icon: this.icons.building
+      icon: this.icons.building,
     },
-    'grocery': {
+    grocery: {
       text: 'Groceries',
       color: this.colors.turqoise,
-      icon: this.icons.shopping
+      icon: this.icons.shopping,
     },
-    'transport': {
+    transport: {
       text: 'Transport',
       color: this.colors.orange,
       icon: this.icons.car,
     },
-    'health': {
+    health: {
       text: 'Health',
       color: this.colors.red,
-      icon: this.icons.health
+      icon: this.icons.health,
     },
-    'gift': {
+    gift: {
       text: 'Gifts',
       color: this.colors.purple,
-      icon: this.icons.gift
+      icon: this.icons.gift,
     },
-    'education': {
+    education: {
       text: 'Education',
       color: this.colors['blue-light'],
-      icon: this.icons.education
-    }
-  }
+      icon: this.icons.education,
+    },
+  };
 
   transactions: any = [
     {
@@ -85,7 +84,7 @@ export class TransactionsComponent {
           icon: this.category.rent.icon,
           color: this.category.rent.color,
           mount: -500,
-          alias: 'rent'
+          alias: 'rent',
         },
         {
           category: this.category.salary.text,
@@ -93,7 +92,7 @@ export class TransactionsComponent {
           icon: this.category.salary.icon,
           color: this.category.salary.color,
           mount: 2000,
-          alias: 'salary'
+          alias: 'salary',
         },
         {
           category: this.category.transport.text,
@@ -101,9 +100,9 @@ export class TransactionsComponent {
           icon: this.category.transport.icon,
           color: this.category.transport.color,
           mount: -10,
-          alias: 'transport'
+          alias: 'transport',
         },
-      ]
+      ],
     },
     {
       date: '06/03/2022',
@@ -115,7 +114,7 @@ export class TransactionsComponent {
           icon: this.category.education.icon,
           color: this.category.education.color,
           mount: -250,
-          alias: 'education'
+          alias: 'education',
         },
         {
           category: this.category.grocery.text,
@@ -123,7 +122,7 @@ export class TransactionsComponent {
           icon: this.category.grocery.icon,
           color: this.category.grocery.color,
           mount: -20,
-          alias: 'grocery'
+          alias: 'grocery',
         },
         {
           category: this.category.gift.text,
@@ -131,9 +130,9 @@ export class TransactionsComponent {
           icon: this.category.gift.icon,
           color: this.category.gift.color,
           mount: -50,
-          alias: 'gift'
+          alias: 'gift',
         },
-      ]
+      ],
     },
     {
       date: '05/03/2022',
@@ -145,11 +144,11 @@ export class TransactionsComponent {
           icon: this.category.health.icon,
           color: this.category.health.color,
           mount: -500,
-          alias: 'health'
+          alias: 'health',
         },
-      ]
+      ],
     },
-  ]
+  ];
 
   color: string = '';
   icon: string = '';
@@ -158,55 +157,55 @@ export class TransactionsComponent {
   colorPostivo: string = '#43C6B8';
   colorNegativo: string = '#F06C6C';
 
-  isFilters: boolean = true
+  isFilters: boolean = !true;
 
   filterApplieds: any = {
     category: [],
     amount: {},
-    date: {}
-  }
+    date: {},
+  };
 
   handleClickIconFilter = () => {
     if (this.isFilters) {
-      this.isFilters = false
+      this.isFilters = false;
     } else {
-      this.isFilters = true
+      this.isFilters = true;
     }
-  }
+  };
 
   handleChangeInput = ($event: any) => {
-    const element = $event.target
-    let filtered = []
+    const element = $event.target;
+    let filtered = [];
 
     if (element.dataset.filter === 'category') {
-      console.log(element.checked)
+      console.log(element.checked);
       if (element.checked) {
         this.filterApplieds = {
           ...this.filterApplieds,
-          category: [...this.filterApplieds.category, element.value]
-        }
+          category: [...this.filterApplieds.category, element.value],
+        };
       } else {
         this.filterApplieds = {
           ...this.filterApplieds,
-          category: this.filterApplieds.category.filter((item: string) => item !== element.value )
-        }
+          category: this.filterApplieds.category.filter(
+            (item: string) => item !== element.value
+          ),
+        };
       }
       if (this.filterApplieds.category.length > 0) {
-
         filtered = this.transactions.map((item: any) => {
-          let filteredMoves = item.moves.filter(((move: any) => this.filterApplieds.category.includes(move.alias)))
+          let filteredMoves = item.moves.filter((move: any) =>
+            this.filterApplieds.category.includes(move.alias)
+          );
           return {
             ...item,
-            moves: filteredMoves
-          }
-        })
-
+            moves: filteredMoves,
+          };
+        });
       }
     }
 
-    console.log(filtered, 'filtered')
-    this.transactions = filtered
-
-  }
-
+    console.log(filtered, 'filtered');
+    this.transactions = filtered;
+  };
 }

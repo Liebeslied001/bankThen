@@ -1,17 +1,16 @@
-import { Component,EventEmitter,Input,OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CategoryModel } from 'src/app/models/category.model';
 @Component({
   selector: 'app-add-new-categories',
   templateUrl: './add-new-categories.component.html',
-  styleUrls: ['./add-new-categories.component.css']
+  styleUrls: ['./add-new-categories.component.css'],
 })
-
 export class AddNewCategoriesComponent {
-  @Input() display: boolean = false
-  @Output() clickClose: EventEmitter<any>  = new EventEmitter()
-  @Output() clickSend: EventEmitter<any>  = new EventEmitter()
+  @Input() display: boolean = false;
+  @Output() clickClose: EventEmitter<any> = new EventEmitter();
+  @Output() clickSend: EventEmitter<any> = new EventEmitter();
 
-  public colors: Array<any>= [
+  public colors: Array<any> = [
     {
       name: 'red',
       className: 'circle-color circle-red red',
@@ -44,7 +43,7 @@ export class AddNewCategoriesComponent {
       name: 'blue',
       className: 'circle-color circle-blue',
     },
-  ]
+  ];
 
   /*private colors: any = {
     red: '#f44261',
@@ -60,52 +59,55 @@ export class AddNewCategoriesComponent {
   newCategory: CategoryModel = {
     name: '',
     color: 'red',
-    icon: 'groceries'
-  }
+    icon: 'groceries',
+  };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleClickClose = ($event: any) => {
     if ($event?.target?.dataset.id === 'modal') {
-      this.clickClose.emit()
+      this.clickClose.emit();
     }
-  }
+  };
 
   handleClickColor = ($event: any) => {
-    const element = $event.target
-    const currentColor = element.dataset.color
-    console.log(element.classList)
+    const element = $event.target;
+    const currentColor = element.dataset.color;
+    console.log(element.classList);
     if (currentColor) {
-      this.setCategory('color', currentColor)
+      this.setCategory('color', currentColor);
     }
-  }
+  };
 
   setCategory = (property: string, propertyValue: string) => {
     this.newCategory = {
       ...this.newCategory,
-      [property]: propertyValue
-    }
-  }
+      [property]: propertyValue,
+    };
+  };
 
   handleClickIcon = ($event: any) => {
-    const currentIcon = $event.target.dataset.icon
+    const currentIcon = $event.target.dataset.icon;
     if (currentIcon) {
-      this.setCategory('icon', currentIcon)
+      this.setCategory('icon', currentIcon);
     }
-  }
+  };
 
   handleChange = ($event: any) => {
-    const currentValue = $event.target.value
-    this.setCategory('name', currentValue)
-  }
+    const currentValue = $event.target.value;
+    this.setCategory('name', currentValue);
+  };
 
   handleClickCreate = () => {
-    if (this.newCategory.color !== '' && this.newCategory.name !== '' && this.newCategory.icon !== '') {
-      this.clickSend.emit(this.newCategory)
-      this.clickClose.emit()
+    if (
+      this.newCategory.color !== '' &&
+      this.newCategory.name !== '' &&
+      this.newCategory.icon !== ''
+    ) {
+      this.clickSend.emit(this.newCategory);
+      this.clickClose.emit();
     }
-  }
+  };
 }
