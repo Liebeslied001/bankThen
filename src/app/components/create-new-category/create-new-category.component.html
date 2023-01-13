@@ -62,9 +62,10 @@
         [money]="250"
         [color]="'#0EA5E9'"
       ></app-button>
-      <div class="add-button">
+      <div class="add-button" (click)="handleClickAddCategory()">
         <i class="fa-solid fa-plus"></i>
       </div>
+      <app-add-new-categories [display]="isOpenModal" [handleClickOutput]="handleClickOutput()"></app-add-new-categories>
     </div>
   </div>
 </div>

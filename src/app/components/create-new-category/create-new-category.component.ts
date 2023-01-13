@@ -9,6 +9,7 @@ import { TabModelItem } from 'src/app/models/tab.model';
 export class CreateNewCategoryComponent {
 
   public tabActive: string = 'expenses'
+  public isOpenModal: boolean = true
   public tabs: TabModelItem[] = [
     {
       name: 'Expenses',
@@ -30,5 +31,15 @@ export class CreateNewCategoryComponent {
   handleClickTab = ($event: any, tabAlias: string) => {
     console.log(tabAlias)
     this.tabActive = tabAlias
+  }
+
+  handleClickAddCategory = () => {
+    console.log('click')
+    this.isOpenModal = true
+  }
+
+  handleClickOutput = () => {
+    //if ($event.target.dataset.id )
+    this.isOpenModal = false
   }
 }

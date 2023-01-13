@@ -10,6 +10,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CuentasComponent } from './components/cuentas/cuentas.component';
 import { IngresosComponent } from './components/ingresos/ingresos.component';
+import { CategoriesModule } from './categories/categories.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { IngresosComponent } from './components/ingresos/ingresos.component';
     CuentasComponent,
     IngresosComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, CategoriesModule],
   providers: [],
   bootstrap: [AppComponent],
 })
