@@ -1,21 +1,19 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'month'
+  name: 'months',
 })
 export class MonthPipe implements PipeTransform {
-
-  transform(value: string, ...args: unknown[]){
-    const monthValue = value.split('/')[1]
-    const year = value.split('/')[2]
-    let format = ''
-    let month = ''
-    console.log(monthValue)
+  transform(value: string, ...args: unknown[]) {
+    const monthValue = value.split('/')[1];
+    const year = value.split('/')[2];
+    let format = '';
+    let month = '';
+    console.log(monthValue);
     if (monthValue == '03') {
-      month = 'March'
+      month = 'March';
     }
-    format = `${month}, ${year}`
-    return format
+    format = `${month}, ${year}`;
+    return format;
   }
-
 }

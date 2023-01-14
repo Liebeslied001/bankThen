@@ -10,11 +10,11 @@
     <h2>Category</h2>
 
     <div class="category-section">
-      <label for="category">
+      <label for="rent">
         <input
-          (change)="handleChangeInput($event)"
+          (click)="handleChangeInput($event)"
           type="checkbox"
-          id="category"
+          id="rent"
           value="rent"
           data-filter="category"
         />
@@ -22,7 +22,7 @@
       </label>
       <label for="salary">
         <input
-          (change)="handleChangeInput($event)"
+          (click)="handleChangeInput($event)"
           type="checkbox"
           id="salary"
           value="salary"
@@ -32,7 +32,7 @@
       </label>
       <label for="transport">
         <input
-          (change)="handleChangeInput($event)"
+          (click)="handleChangeInput($event)"
           type="checkbox"
           id="transport"
           value="transport"
@@ -42,7 +42,7 @@
       </label>
       <label for="education">
         <input
-          (change)="handleChangeInput($event)"
+          (click)="handleChangeInput($event)"
           type="checkbox"
           id="education"
           value="education"
@@ -52,7 +52,7 @@
       </label>
       <label for="grocery">
         <input
-          (change)="handleChangeInput($event)"
+          (click)="handleChangeInput($event)"
           type="checkbox"
           id="grocery"
           value="grocery"
@@ -62,25 +62,43 @@
       </label>
       <label for="gift">
         <input
-          (change)="handleChangeInput($event)"
+          (click)="handleChangeInput($event)"
           type="checkbox"
           id="gift"
+          value="gift"
           data-filter="category"
         />
-        Gifts
+        Gift
       </label>
     </div>
+
     <h2>Amount</h2>
     <div class="amount-section">
       <div>
         <label>MIN</label>
-        <input type="text" />
+        <input
+          type="number"
+          value="0"
+          (input)="handleMonto($event)"
+          min="0"
+          name="min"
+          [(ngModel)]="filterApplieds.amount.min"
+          data-filter="amount"
+        />
       </div>
       <div>
         <label>MAX</label>
-        <input type="text" />
+        <input
+          type="number"
+          value="4000"
+          name="max"
+          (input)="handleMonto($event)"
+          [(ngModel)]="filterApplieds.amount.max"
+          data-filter="amount"
+        />
       </div>
     </div>
+
     <h2>Date</h2>
     <div class="amount-section">
       <div>

@@ -28,7 +28,7 @@ export class CreateNewCategoryComponent {
     gift: 'fa-solid fa-gift',
     education: 'fa-solid fa-chalkboard',
     gamepad: 'fa-solid fa-gamepad',
-    creddit: 'fa-solid fa-book',
+    creddit: 'fa-solid fa-credit-card',
   };
   public tabActive: string = 'expenses';
   public isOpenModal: boolean = false;

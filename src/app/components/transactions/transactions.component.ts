@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Transaction } from 'src/app/models/transaction.model';
+
 @Component({
   selector: 'app-transactions',
   templateUrl: './transactions.component.html',
@@ -73,7 +74,7 @@ export class TransactionsComponent {
     },
   };
 
-  transactions: any = [
+  transactionsInit: any = [
     {
       date: '07/03/2022',
       total: 1540,
@@ -84,7 +85,7 @@ export class TransactionsComponent {
           icon: this.category.rent.icon,
           color: this.category.rent.color,
           mount: -500,
-          alias: 'rent',
+          alias: 'Rent',
         },
         {
           category: this.category.salary.text,
@@ -150,20 +151,15 @@ export class TransactionsComponent {
     },
   ];
 
+  transactions = [...this.transactionsInit];
   color: string = '';
   icon: string = '';
   name: string = '';
   cantidad: string = '';
-  colorPostivo: string = '#43C6B8';
-  colorNegativo: string = '#F06C6C';
+  // colorPostivo: string = '#43C6B8';
+  // colorNegativo: string = '#F06C6C';
 
   isFilters: boolean = !true;
-
-  filterApplieds: any = {
-    category: [],
-    amount: {},
-    date: {},
-  };
 
   handleClickIconFilter = () => {
     if (this.isFilters) {
@@ -172,13 +168,20 @@ export class TransactionsComponent {
       this.isFilters = true;
     }
   };
+  /////////MIS FILTROSS/////////////////////////
 
+  filterApplieds: any = {
+    category: [],
+    amount: {
+      min: 0,
+      max: 4000,
+    },
+    date: { minD: new Date('01/03/2022'), maxD: new Date('30/03/2022') },
+  };
   handleChangeInput = ($event: any) => {
+    this.transactions = this.transactionsInit;
     const element = $event.target;
-    let filtered = [];
-
     if (element.dataset.filter === 'category') {
-      console.log(element.checked);
       if (element.checked) {
         this.filterApplieds = {
           ...this.filterApplieds,
@@ -192,20 +195,51 @@ export class TransactionsComponent {
           ),
         };
       }
-      if (this.filterApplieds.category.length > 0) {
-        filtered = this.transactions.map((item: any) => {
-          let filteredMoves = item.moves.filter((move: any) =>
-            this.filterApplieds.category.includes(move.alias)
-          );
-          return {
-            ...item,
-            moves: filteredMoves,
-          };
+      //paso 1
+      let reg = new RegExp(this.filterApplieds.category.join('|'), 'gmi'); // rent | education
+      let newdata = this.transactions.filter((el) => {
+        const str = el.moves.reduce((acc: any, act: any) => {
+          return acc + act.alias;
+        }, '');
+        const test = reg.test(str);
+        reg.lastIndex = 0;
+        return test;
+      });
+      //paso 2
+      newdata = newdata.map((tras) => {
+        const newMoves = tras.moves.filter((mov: any) => {
+          const test2 = reg.test(mov.alias);
+          reg.lastIndex = 0;
+          return test2;
         });
-      }
+        return { ...tras, moves: newMoves };
+      });
+      this.transactions = newdata;
     }
-
-    console.log(filtered, 'filtered');
-    this.transactions = filtered;
+  };
+  handleMonto = (event: any) => {
+    // const element = event.target;
+    // console.log(element.value);
+    this.transactions = this.transactionsInit;
+    //paso 1
+    const transNumbers = this.transactions.filter((tra) => {
+      const newTra = tra.moves.some(
+        (t: any) =>
+          t.mount >= this.filterApplieds.amount.min &&
+          t.mount <= this.filterApplieds.amount.max
+      );
+      return newTra;
+    });
+    //paso 2
+    const transNumbers2 = transNumbers.map((tras) => {
+      const newTras = tras.moves.filter((mov: any) => {
+        const nn =
+          mov.mount >= this.filterApplieds.amount.min &&
+          mov.mount <= this.filterApplieds.amount.max;
+        return nn;
+      });
+      return { ...tras, moves: newTras };
+    });
+    this.transactions = transNumbers2;
   };
 }
