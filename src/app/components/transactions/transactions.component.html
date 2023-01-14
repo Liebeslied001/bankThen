@@ -9,27 +9,27 @@
 
     <div class="category-section">
       <label for="category">
-        <input (change)="handleChangeInput($event)" type="checkbox" id="category" value="rent" data-filter="category">
+        <input (input)="handleChangeInput($event)" type="checkbox" id="category" value="rent" data-filter="category">
         Rent
       </label>
       <label for="salary">
-        <input (change)="handleChangeInput($event)" type="checkbox" id="salary" value="salary" data-filter="category">
+        <input (input)="handleChangeInput($event)" type="checkbox" id="salary" value="salary" data-filter="category">
         Salary
       </label>
       <label for="transport">
-        <input (change)="handleChangeInput($event)" type="checkbox" id="transport" value="transport" data-filter="category">
+        <input (input)="handleChangeInput($event)" type="checkbox" id="transport" value="transport" data-filter="category">
         Transport
       </label>
       <label for="education">
-        <input (change)="handleChangeInput($event)" type="checkbox" id="education" value="education" data-filter="category">
+        <input (input)="handleChangeInput($event)" type="checkbox" id="education" value="education" data-filter="category">
         Education
       </label>
       <label for="grocery">
-        <input (change)="handleChangeInput($event)" type="checkbox" id="grocery" value="grocery" data-filter="category">
+        <input (input)="handleChangeInput($event)" type="checkbox" id="grocery" value="grocery" data-filter="category">
         Groceries
       </label>
       <label for="gift">
-        <input (change)="handleChangeInput($event)" type="checkbox" id="gift" value="gift" data-filter="category">
+        <input (input)="handleChangeInput($event)" type="checkbox" id="gift" value="gift" data-filter="category">
         Gifts
       </label>
     </div>
@@ -37,11 +37,11 @@
     <div class="amount-section">
       <div>
         <label>MIN</label>
-        <input type="text" (change)="handleChangeInput($event)" data-filter="amount">
+        <input name='min' type="text" (input)="handleChangeInput($event)" data-filter="amount">
       </div>
       <div>
         <label>MAX</label>
-        <input type="text" (change)="handleChangeInput($event)" data-filter="amount">
+        <input name="max" type="text" (input)="handleChangeInput($event)" data-filter="amount">
       </div>
     </div>
     <h2>Date</h2>

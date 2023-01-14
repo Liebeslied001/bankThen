@@ -177,6 +177,7 @@ export class TransactionsComponent {
 
   handleChangeInput = ($event: any) => {
     const element = $event.target
+    console.log($event.target.value,'valeueee')
     let filtered = []
 
     if (element.dataset.filter === 'category') {
@@ -205,6 +206,32 @@ export class TransactionsComponent {
       } else {
         filtered = this.transactionsInit
       }
+    }
+
+
+
+    if (element.dataset.filter === 'amount') {
+      if (element.name === 'min') {
+        this.filterApplieds = {
+          ...this.filterApplieds,
+          amount: {
+            ...this.filterApplieds.amount,
+            min: element.value
+          }
+        }
+      }
+      if (element.name === 'max') {
+        this.filterApplieds = {
+          ...this.filterApplieds,
+          amount: {
+            ...this.filterApplieds.amount,
+            max: element.value
+          }
+        }
+      }
+
+
+
     }
 
     console.log(filtered, 'filtered')
