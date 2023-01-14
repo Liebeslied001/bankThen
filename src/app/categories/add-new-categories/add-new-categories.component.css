@@ -158,17 +158,19 @@ p {
   cursor: pointer;
 }
 
-.circle-icon svg {
+.circle-icon i {
   color: var(--gray-color);
-  width: 26px;
+  font-size: 22px;
   pointer-events: none;
 }
 
 .icon-selected {
   background-color: var(--gray-color);
 }
-.icon-selected svg {
+.icon-selected i {
   color: white;
+  font-size: 22px;
+
 }
 
 .popup-footer button {

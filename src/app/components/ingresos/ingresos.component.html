@@ -1,7 +1,6 @@
 <div class="item">
   <div class="section">
     <div class="icon" [ngStyle]="{ 'background-color': color }">
-      <!-- <i class="fa-solid fa-gift"></i> -->
       <i [ngClass]="icon"></i>
     </div>
     <div class="text">
@@ -9,7 +8,7 @@
       <p>Description</p>
     </div>
   </div>
-  <div class="total">
+  <div class="total" [ngClass]="cantidad > 0 ? 'total--plus' : 'total--minus'">
     <p [ngStyle]="{ color: colorCant }">{{ cantidad }}</p>
   </div>
 </div>
