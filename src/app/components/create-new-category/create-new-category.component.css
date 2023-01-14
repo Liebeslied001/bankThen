@@ -4,6 +4,8 @@
   padding: 60px;
   font-family: inter;
   color: var(--color-gray-dark);
+  overflow: scroll;
+  scrollbar-width: none;
 }
 
 h1 {
@@ -56,11 +58,12 @@ h5 {
 
 .nav-item {
   font-weight: 600;
-  color: var(--color-gray-dark);;
+  color: var(--color-gray-dark);
   font-size: 1.3rem;
 }
 
-.nav-item:hover, .nav-item--active{
+.nav-item:hover,
+.nav-item--active {
   color: var(--color-pink);
 }
 
@@ -71,7 +74,7 @@ h5 {
 }
 
 .nav-item:hover:after,
-.nav-item--active:after{
+.nav-item--active:after {
   border-bottom: 3px solid var(--color-pink);
 }
 

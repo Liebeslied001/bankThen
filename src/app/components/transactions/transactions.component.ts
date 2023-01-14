@@ -156,8 +156,6 @@ export class TransactionsComponent {
   icon: string = '';
   name: string = '';
   cantidad: string = '';
-  // colorPostivo: string = '#43C6B8';
-  // colorNegativo: string = '#F06C6C';
 
   isFilters: boolean = !true;
 
