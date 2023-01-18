@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutCategoriesComponent } from './layout-categories/layout-categories.component';
 import { AddNewCategoriesComponent } from './add-new-categories/add-new-categories.component';
 
 @NgModule({
   declarations: [
-    LayoutCategoriesComponent,
     AddNewCategoriesComponent
   ],
   imports: [
@@ -13,7 +11,6 @@ import { AddNewCategoriesComponent } from './add-new-categories/add-new-categori
 
   ],
   exports: [
-    LayoutCategoriesComponent,
     AddNewCategoriesComponent
   ]
 })

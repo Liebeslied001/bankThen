@@ -4,7 +4,7 @@
     <ul>
       <li *ngFor="let nav of menu" [ngClass]="active === nav.name ? 'item--active': ''">
         <i class="{{nav.icon}}"></i>
-        <a href="#" target="_blank">{{nav.text}}</a>
+        <a routerLink="/{{nav.name}}" >{{nav.text}}</a>
       </li>
     </ul>
   </div>

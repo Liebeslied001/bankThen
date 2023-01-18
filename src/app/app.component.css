@@ -1,9 +1,11 @@
 .container {
   width: 100%;
   display: grid;
-  grid-template-columns: 15% 60% 25%;
+  grid-template-columns: 15% 0% 60% 25%;
 }
-
+router-outlet{
+  width: 0;
+}
 app-side-bar {
   width: 100%;
   background-color: aquamarine;

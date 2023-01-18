@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Transaction } from 'src/app/models/transaction.model';
+import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
   selector: 'app-transactions',
@@ -13,7 +15,7 @@ export class TransactionsComponent {
     category: '',
     amount: 0,
   };
-
+/*
   private colors: any = {
     red: '#f44261',
     orange: '#f97216',
@@ -150,8 +152,16 @@ export class TransactionsComponent {
       ],
     },
   ];
+*/
+  
 
-  transactions = [...this.transactionsInit];
+
+constructor(
+  private route: ActivatedRoute,
+  private transactionService: TransactionsService
+){}
+
+transactions = [...this.transactionService.getAllTransactions()];
   color: string = '';
   icon: string = '';
   name: string = '';
@@ -166,6 +176,8 @@ export class TransactionsComponent {
       this.isFilters = true;
     }
   };
+
+  
   /////////MIS FILTROSS/////////////////////////
 
   filterApplieds: any = {
@@ -177,7 +189,7 @@ export class TransactionsComponent {
     date: { minD: new Date('01/03/2022'), maxD: new Date('30/03/2022') },
   };
   handleChangeInput = ($event: any) => {
-    this.transactions = this.transactionsInit;
+    this.transactions = this.transactionService.getAllTransactions();
     const element = $event.target;
     if (element.dataset.filter === 'category') {
       if (element.checked) {
@@ -218,7 +230,7 @@ export class TransactionsComponent {
   handleMonto = (event: any) => {
     // const element = event.target;
     // console.log(element.value);
-    this.transactions = this.transactionsInit;
+    this.transactions = this.transactionService.getAllTransactions();
     //paso 1
     const transNumbers = this.transactions.filter((tra) => {
       const newTra = tra.moves.some(
@@ -240,4 +252,5 @@ export class TransactionsComponent {
     });
     this.transactions = transNumbers2;
   };
+  
 }
